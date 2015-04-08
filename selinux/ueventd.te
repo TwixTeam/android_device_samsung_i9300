@@ -1,6 +1,4 @@
-# MFC firmware
+# Firmwares
 allow ueventd { firmware_mfc }:file r_file_perms;
-
-# Camera related firmwares
 allow ueventd { firmware_camera }:dir search;
 allow ueventd { firmware_camera }:file { read getattr open };
