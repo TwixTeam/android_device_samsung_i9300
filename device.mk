@@ -65,9 +65,13 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag
 
-# Camera
+# FMRADIO
 PRODUCT_PACKAGES += \
-    camera.smdk4x12
+    FMRadio \
+    libcutils \
+    libdl \
+    libfmjni \
+    libmedia
 
 PRODUCT_COPY_FILES += \
     packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
