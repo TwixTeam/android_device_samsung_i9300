@@ -29,6 +29,9 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Configure dalvik heap
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
@@ -59,19 +62,14 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-	nfc.exynos4 \
+    nfc.exynos4 \
     libnfc \
     libnfc_jni \
     Nfc \
     Tag
 
-# FMRADIO
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libcutils \
-    libdl \
-    libfmjni \
-    libmedia
+# Inherit the SIM Toolkit
+PRODUCT_PACKAGES += Stk
 
 PRODUCT_COPY_FILES += \
     packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
@@ -100,7 +98,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # ZRAM

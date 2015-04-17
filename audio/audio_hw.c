@@ -365,6 +365,13 @@ static int start_call(struct m0_audio_device *adev)
     } else {
        pcm_config_vx.rate = adev->wb_amr ? VX_WB_SAMPLING_RATE : VX_NB_SAMPLING_RATE;
     }
+
+    if (bt_on) {
+       /* use amr-nb for bluetooth */
+       pcm_config_vx.rate = VX_NB_SAMPLING_RATE;
+    } else {
+       pcm_config_vx.rate = adev->wb_amr ? VX_WB_SAMPLING_RATE : VX_NB_SAMPLING_RATE;
+    }
     ALOGE("Starting call with WB_AMR=%d", adev->wb_amr);
     /* Open modem PCM channels */
     if (adev->pcm_modem_dl == NULL) {
