@@ -7,9 +7,9 @@
   },
   {
     "remote": "github",
-    "repository": "ArchiDroid/android_kernel_samsung_smdk4412",
+    "repository": "NamelessRom/android_kernel_samsung_smdk4412",
     "target_path": "kernel/samsung/smdk4412",
-    "revision": "cm-12.1"
+    "revision": "n-2.0"
   },
   {
     "remote": "github",
