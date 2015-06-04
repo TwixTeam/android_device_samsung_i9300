@@ -22,6 +22,7 @@
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 BOARD_MODEM_TYPE := xmm6262
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/i9300/include
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i9300/bluetooth
@@ -30,12 +31,36 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i9300/bluetooth
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
 TARGET_KERNEL_CONFIG := cyanogenmod_i9300_defconfig
 
-# Blobs
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/i9300/rootdir/fstab.smdk4x12
 RECOVERY_FSTAB_VERSION := 2
+
+# Selinux
+BOARD_SEPOLICY_DIRS += \
+    device/samsung/i9300/selinux
+
+BOARD_SEPOLICY_UNION += \
+    bluetooth.te \
+    device.te \
+    domain.te \
+    file.te \
+    file_contexts \
+    gpsd.te \
+    init.te \
+    mediaserver.te \
+    netd.te \
+    nfc.te \
+    rild.te \
+    system.te \
+    servicemanager.te \
+    service_contexts \
+    surfaceflinger.te \
+    sysinit.te \
+    system_app.te \
+    system_server.te \
+    ueventd.te \
+    vold.te \
+    wpa_supplicant.te
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
