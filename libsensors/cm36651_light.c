@@ -236,7 +236,7 @@ int cm36651_light_get_data(struct smdk4x12_sensors_handlers *handlers,
 			if (input_event.code == REL_Y)
 				green = input_event.value;
 			if (input_event.code == REL_MISC)
-				event->light = cm36651_light_convert(input_event.value);
+				white = input_event.value;
 		} else if (input_event.type == EV_SYN) {
 			if (input_event.code == SYN_REPORT)
 				event->timestamp = input_timestamp(&input_event);

@@ -153,7 +153,6 @@ int lps331ap_deactivate(struct smdk4x12_sensors_handlers *handlers)
 int lps331ap_set_delay(struct smdk4x12_sensors_handlers *handlers, int64_t delay)
 {
 	struct lps331ap_data *data;
-	int d;
 	int rc;
 
 	ALOGD("%s(%p, %" PRId64 ")", __func__, handlers, delay);
