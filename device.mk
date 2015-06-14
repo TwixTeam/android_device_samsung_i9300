@@ -68,9 +68,6 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag
 
-# Inherit the SIM Toolkit
-PRODUCT_PACKAGES += Stk
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.smdk4x12
