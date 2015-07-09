@@ -40,7 +40,7 @@ RECOVERY_FSTAB_VERSION := 2
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
 
 # TWRP
-DEVICE_RESOLUTION := 720x1280
+TW_THEME := portrait_hdpi
 
 # inherit from the proprietary version
 -include vendor/samsung/i9300/BoardConfigVendor.mk
