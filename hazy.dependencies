@@ -1,9 +1,9 @@
 [
   {
     "remote": "github",
-    "repository": "CyanogenMod/android_packages_apps_SamsungServiceMode",
+    "repository": "mnemonyc/android_packages_apps_SamsungServiceMode",
     "target_path": "packages/apps/SamsungServiceMode",
-    "branch": "cm-12.1"
+    "branch": "hazy-mallow"
   },
   {
     "remote": "github",
