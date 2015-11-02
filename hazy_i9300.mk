@@ -19,6 +19,7 @@ $(call inherit-product, vendor/hazy/configs/gsm.mk)
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Inherit from our Hazy product configuration
 $(call inherit-product, vendor/hazy/configs/common.mk)
@@ -33,6 +34,7 @@ PRODUCT_DEVICE := i9300
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := Samsung
 PRODUCT_MODEL := GT-I9300
+PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Override common i9300 properties to show properly i.e. in google services
 # This is required to solve some apps being incompatible with our device
@@ -41,7 +43,9 @@ PRODUCT_MODEL := GT-I9300
 # BUILD_FINGERPRINT="samsung/m0xx/m0:4.4.2/KVT49L/I9300TWIX:user/release-keys"
 # PRIVATE_BUILD_DESC="m0xx-user 4.4.2 KVT49L I9300TWIX release-keys"
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="samsung/m0xx/m0:4.3/JSS15J/I9300XXUGNA7:user/release-keys" \
-    PRIVATE_BUILD_DESC="m0xx-user 4.3 JSS15J I9300XXUGNA7 release-keys" \
+    PRODUCT_NAME=m0xx \
     TARGET_DEVICE=m0 \
-    PRODUCT_NAME=m0xx
+    BUILD_FINGERPRINT="samsung/m0xx/m0:4.3/JSS15J/I9300XXUGNA7:user/release-keys" \
+    PRIVATE_BUILD_DESC="m0xx-user 4.3 JSS15J I9300XXUGNA7 release-keys"
+
+$(call inherit-product-if-exists, vendor/samsung/i9300/device-vendor.mk)

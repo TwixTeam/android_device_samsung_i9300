@@ -1,4 +1,5 @@
-# Copyright (C) 2012 The CyanogenMod Project
+#
+# Copyright 2013 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,25 +12,29 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-#
-# This file is the build configuration for a full Android
-# build for toro hardware. This cleanly combines a set of
-# device-specific aspects (drivers) with a device-agnostic
-# product configuration (apps). Except for a few implementation
-# details, it only fundamentally contains two inherit-product
-# lines, full and toro, hence its name.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-# This is where we'd set a backup provider if we had one
-#$(call inherit-product, device/sample/products/backup_overlay.mk)
-$(call inherit-product, device/samsung/i9300/device.mk)
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/samsung/i9300/configs/apns-full-conf.xml:system/etc/apns-conf.xml
 
-# Discard inherited values and use our own instead.
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
 PRODUCT_NAME := full_i9300
 PRODUCT_DEVICE := i9300
 PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := Samsung
-PRODUCT_MODEL := GT-I9300
+PRODUCT_MODEL := GT-i9300
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_RESTRICT_VENDOR_FILES := false
+
+
+# Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=m0xx \
+    TARGET_DEVICE=m0 \
+    BUILD_FINGERPRINT="samsung/m0xx/m0:4.3/JSS15J/I9300XXUGNA7:user/release-keys" \
+    PRIVATE_BUILD_DESC="m0xx-user 4.3 JSS15J I9300XXUGNA7 release-keys"
+
+$(call inherit-product, device/samsung/i9300/device.mk)
+$(call inherit-product-if-exists, vendor/samsung/i9300/device-vendor.mk)
