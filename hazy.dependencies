@@ -4,17 +4,5 @@
     "repository": "mnemonyc/android_packages_apps_SamsungServiceMode",
     "target_path": "packages/apps/SamsungServiceMode",
     "branch": "hazy-mallow"
-  },
-  {
-    "remote": "github",
-    "repository": "ArchiDroid/android_kernel_samsung_smdk4412",
-    "target_path": "kernel/samsung/smdk4412",
-    "branch": "cm-12.1"
-  },
-  {
-    "remote": "github",
-    "repository": "ArchiDroid/proprietary_vendor_samsung",
-    "target_path": "vendor/samsung",
-    "branch": "cm-12.1"
   }
 ]
