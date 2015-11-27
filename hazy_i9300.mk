@@ -14,15 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit Hazy GSM telephony parts
-$(call inherit-product, vendor/hazy/configs/gsm.mk)
-
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Inherit from our Hazy product configuration
-$(call inherit-product, vendor/hazy/configs/common.mk)
+$(call inherit-product, vendor/hazy/main.mk)
 
 # This is where we'd set a backup provider if we had one
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
